@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Football Smart Card Tickets</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <section id="header">
+    <a href="Accueil.html"><img src="logo.png" class="logo" alt="Logo Zitouna"></a>
+    <ul id="navbar">
+      <li><a class="active" href="Accueil.html">Accueil</a></li>
+      <li><a href="Boutique.html">Tickets</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+      <li id="lg-bag"><a href="#cart" id="cart-link"><i class="far fa-shopping-cart"></i></a></li>
+      <a href="#" id="close"><i class="far fa-times"></i></a>
+    </ul>
+    <div id="mobile">
+      <a href="#cart" id="cart-link"><i class="far fa-shopping-cart"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Football Smart Card Tickets</h1>
+      <p>Buy and store your football match tickets securely on a smart card. Enjoy a premium experience with the official Moroccan team matches.</p>
+      <a href="#matches" class="btn-primary">Browse Matches</a>
+      <a href="#contact" class="btn-secondary">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- MATCHES SECTION -->
+  <section class="matches" id="matches">
+    <h2>Upcoming Matches</h2>
+    <div class="matches-grid">
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-egypt">
+        <img src="egy.jpg" alt="Morocco vs Egypt" />
+        <h3>Morocco vs Egypt</h3>
+        <p>National Stadium, 12 June 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-spain">
+        <img src="esp.jpg" alt="Morocco vs Spain" />
+        <h3>Morocco vs Spain</h3>
+        <p>National Stadium, 18 June 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-france">
+        <img src="fr.jpg" alt="Morocco vs France" />
+        <h3>Morocco vs France</h3>
+        <p>National Stadium, 24 June 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-gabon">
+        <img src="gab.jpg" alt="Morocco vs Gabon" />
+        <h3>Morocco vs Gabon</h3>
+        <p>National Stadium, 30 June 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-algeria">
+        <img src="alg.jpg" alt="Morocco vs Algeria" />
+        <h3>Morocco vs Algeria</h3>
+        <p>National Stadium, 6 July 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-senegal">
+        <img src="sen.jpg" alt="Morocco vs Senegal" />
+        <h3>Morocco vs Senegal</h3>
+        <p>National Stadium, 12 July 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-tunisia">
+        <img src="tun.jpg" alt="Morocco vs Tunisia" />
+        <h3>Morocco vs Tunisia</h3>
+        <p>National Stadium, 18 July 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-portugal">
+        <img src="pur.jpg" alt="Morocco vs Portugal" />
+        <h3>Morocco vs Portugal</h3>
+        <p>National Stadium, 24 July 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-croatia">
+        <img src="cro.png" alt="Morocco vs Croatia" />
+        <h3>Morocco vs Croatia</h3>
+        <p>National Stadium, 30 July 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-belgium">
+        <img src="bel.jpg" alt="Morocco vs Belgium" />
+        <h3>Morocco vs Belgium</h3>
+        <p>National Stadium, 5 Aug 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-brazil">
+        <img src="bra.jpg" alt="Morocco vs Brazil" />
+        <h3>Morocco vs Brazil</h3>
+        <p>National Stadium, 11 Aug 2025</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Modal -->
+  <div id="ticket-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Choisissez Votre Ticket</h2>
+      <div class="tickets"></div>
+      <p class="error-message"></p>
+      <p class="success-message"></p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+<!-- CART SIDEBAR -->
+<div id="cart-sidebar" class="cart-sidebar">
+  <h2>Your Cart</h2>
+  <div class="cart-items"></div>
+  <div class="cart-total"></div>
+  <button class="close-cart">Close</button>
+</div>
+
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:#2e0000; padding:40px 20px; color:#fff; text-align:center;">
+    <h2>Contact Us</h2>
+    <p>Email: support@zitouna.tickets</p>
+    <p>Phone: +212 600 123 456</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Zitouna Football Smart Cards. All rights reserved.
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

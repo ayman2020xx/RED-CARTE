@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome | Football Smart Card Tickets</title>
+  <style>
+    /* Reset and basics */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body, html {
+      width: 100%; height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      overflow: hidden;
+    }
+    /* Video background */
+    #video-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.5);
+    }
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(61, 11, 11, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .overlay h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    .overlay p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      max-width: 600px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    }
+    .enter-button {
+      background-color: #7f1e1e;
+      border: none;
+      padding: 15px 40px;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 12px rgba(176, 58, 58, 0.7);
+    }
+    .enter-button:hover {
+      background-color: #b03a3a;
+      box-shadow: 0 6px 16px rgba(176, 58, 58, 0.9);
+    }
+
+
+    /* Animate overlay background fade-in */
+@keyframes overlayFadeIn {
+  from { background-color: rgba(61, 11, 11, 0); }
+  to { background-color: rgba(61, 11, 11, 0.6); }
+}
+
+.overlay {
+  background-color: rgba(61, 11, 11, 0); /* start fully transparent */
+  animation: overlayFadeIn 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+/* Fade-in and slide up animation for children */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlay > * {
+  opacity: 0;
+  animation: fadeSlideIn 1s ease forwards;
+}
+
+.overlay h1 {
+  animation-delay: 0.4s; /* after overlay fades in */
+}
+
+.overlay p {
+  animation-delay: 0.5s;
+}
+
+.enter-button {
+  animation-delay: 0.6s;
+}
+
+  </style>
+</head>
+<body>
+
+  <video id="video-bg" autoplay muted loop playsinline>
+    <source src="card.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="overlay">
+    <h1>Votre Ticket. Votre Carte. Votre Jeu.</h1>
+    <p>Achetez vos tickets de match en ligne, enregistrez-les sur votre carte et profitez d'une entrée transparente à chaque match.</p>
+    <button class="enter-button" onclick="enterSite()">Entrer</button>
+  </div>
+
+  <script>
+    function enterSite() {
+      // Redirect to main page (adjust path if different)
+      window.location.href = 'Accueil.html';
+    }
+  </script>
+
+</body>
+</html>

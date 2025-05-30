@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - Football Tickets</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #222;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .cart-container h2 {
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    table th {
+      background: #333;
+    }
+
+    table tr:nth-child(even) {
+      background: #2a2a2a;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🏟️ Your Cart
+  </header>
+
+  <div class="cart-container">
+    <h2>Tickets in Cart</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Match</th>
+          <th>Ticket Type</th>
+          <th>Price (MAD)</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Cart items go here -->
+      </tbody>
+    </table>
+    <div class="total" id="cart-total">
+      Total: 0 MAD
+    </div>
+  </div>
+
+  <script src="cart.js"></script>
+</body>
+</html>
