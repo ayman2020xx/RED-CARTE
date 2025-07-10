@@ -3,11 +3,11 @@ const modal = document.getElementById('ticket-modal');
 const ticketsContainer = modal.querySelector('.tickets');
 const closeBtn = modal.querySelector('.close');
 const addToCartBtn = modal.querySelector('.add-to-cart');
-const errorMessage = modal.querySelector('.error-message'); // Target the error message element
-const successMessage = modal.querySelector('.success-message'); // Target the error message element
+const errorMessage = modal.querySelector('.error-message');
+const successMessage = modal.querySelector('.success-message');
 
 const ticketData = {
-  'morocco-egypt': [
+    'morocco-egypt': [
     { type: 'VIP', price: 1000 },
     { type: 'Premium', price: 500 },
     { type: 'Standard', price: 300 },
@@ -62,6 +62,7 @@ const ticketData = {
     { type: 'Premium', price: 850 },
     { type: 'Standard', price: 480 },
   ],
+  // ... other matches
 };
 
 let selectedTicket = null;
@@ -75,7 +76,8 @@ matches.forEach(card => {
     const tickets = ticketData[matchKey];
     ticketsContainer.innerHTML = '';
     selectedTicket = null;
-    errorMessage.textContent = ''; // Clear error on new modal open
+    errorMessage.textContent = '';
+    successMessage.textContent = '';
 
     if (tickets) {
       tickets.forEach(ticket => {
@@ -104,33 +106,42 @@ ticketsContainer.addEventListener('click', (e) => {
       type: option.dataset.type,
       price: parseFloat(option.dataset.price)
     };
-    errorMessage.textContent = ''; // Clear error when selection is made
+    errorMessage.textContent = '';
+    successMessage.textContent = '';
   }
 });
 
 // Store cart items
-const cartItems = [];
-
-// Handle 'Add to Cart' click
 addToCartBtn.addEventListener('click', () => {
   if (!selectedTicket) {
-    errorMessage.textContent = '⚠️Please select a ticket type before adding to cart.';
+    errorMessage.textContent = '⚠️ Please select a ticket type before adding to cart.';
     return;
   }
 
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
   cartItems.push({
-    match: currentMatch.replace(/-/g, ' ').toUpperCase(),
+    match: formatMatchName(currentMatch),
     type: selectedTicket.type,
     price: selectedTicket.price
   });
 
-  errorMessage.textContent = ''; // Clear any error
-  console.log(cartItems); // For debugging
+function formatMatchName(matchKey) {
+  // Example: morocco-egypt → Morocco vs Egypt
+  const parts = matchKey.split('-');
+  return `${capitalize(parts[0])} vs ${capitalize(parts[1])}`;
+}
 
-  // Optional: Show a success message
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+
+  localStorage.setItem('cart', JSON.stringify(cartItems));
+
+  errorMessage.textContent = '';
   successMessage.textContent = `${selectedTicket.type} ticket added to cart!`;
 
-  // Reset selection after adding
+  // Reset selection
   document.querySelectorAll('.ticket-option').forEach(opt => opt.classList.remove('selected'));
   selectedTicket = null;
 });
@@ -139,11 +150,31 @@ addToCartBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
   modal.classList.remove('show');
   errorMessage.textContent = '';
+  successMessage.textContent = '';
 });
 modal.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.classList.remove('show');
     errorMessage.textContent = '';
+    successMessage.textContent = '';
   }
 });
 
+
+
+// Navbar toggle
+const bar = document.getElementById('bar');
+const close = document.getElementById('close');
+const nav = document.getElementById('navbar');
+
+if (bar && nav) {
+  bar.addEventListener('click', () => {
+    nav.classList.add('active');
+  });
+}
+
+if (close && nav) {
+  close.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+}

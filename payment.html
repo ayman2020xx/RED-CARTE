@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paiement | RED-CARTE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+  <!-- HEADER -->
+  <section id="header">
+    <a href="Accueil.html"><img src="logo.png" class="logo" alt="Logo RED-CARTE"></a>
+    <ul id="navbar">
+      <li><a href="Accueil.html">Accueil</a></li>
+      <li><a href="ticket.html">Tickets</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li id="lg-bag"><a class="active" href="cart.html"><i class="far fa-shopping-cart"></i></a></li>
+      <a href="#" id="close"><i class="far fa-times"></i></a>
+    </ul>
+    <div id="mobile">
+      <a href="cart.html"><i class="far fa-shopping-cart"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+
+  <main>
+    <section class="hero2">
+      <div class="hero2-content">
+        <h1>Paiement Sécurisé</h1>
+        <p>Entrez vos informations pour finaliser l'achat</p>
+      </div>
+    </section>
+
+    <section class="cart-content">
+      <div class="cart-container">
+        <form id="payment-form" class="payment-form">
+          <label>Nom sur la carte</label>
+          <input type="text" placeholder="John Doe" required />
+
+          <label>Numéro de carte</label>
+          <input type="text" maxlength="19" placeholder="1234 5678 9012 3456" required />
+
+          <div class="payment-row">
+            <div>
+              <label>Date d'expiration</label>
+              <input type="text" maxlength="5" placeholder="MM/YY" required />
+            </div>
+            <div>
+              <label>CVV</label>
+              <input type="text" maxlength="4" placeholder="123" required />
+            </div>
+          </div>
+
+          <div class="cart-total" style="margin-top:20px;">
+            <span>Total :</span>
+            <span id="cart-total-amount">0 MAD</span>
+          </div>
+          
+          <button type="submit" class="checkout-btn">Payer maintenant</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 RED-CARTE. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Fetch total from cart
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalAmountEl = document.getElementById('cart-total-amount');
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    totalAmountEl.textContent = `${total} MAD`;
+
+    document.getElementById('payment-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('✅ Paiement réussi ! Merci pour votre achat.');
+      localStorage.removeItem('cart');
+      window.location.href = 'Accueil.html';
+    });
+
+
+    // Navbar toggle
+const bar = document.getElementById('bar');
+const close = document.getElementById('close');
+const nav = document.getElementById('navbar');
+
+if (bar && nav) {
+  bar.addEventListener('click', () => {
+    nav.classList.add('active');
+  });
+}
+
+if (close && nav) {
+  close.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+}
+  </script>
+</body>
+</html>

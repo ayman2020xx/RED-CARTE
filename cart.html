@@ -1,88 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart - Football Tickets</title>
-  <style>
-    body {
-      background: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      padding: 20px;
-      text-align: center;
-      background: #222;
-      font-size: 24px;
-      letter-spacing: 1px;
-    }
-
-    .cart-container {
-      max-width: 800px;
-      margin: 40px auto;
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    .cart-container h2 {
-      margin-bottom: 20px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    table th, table td {
-      padding: 12px;
-      text-align: left;
-    }
-
-    table th {
-      background: #333;
-    }
-
-    table tr:nth-child(even) {
-      background: #2a2a2a;
-    }
-
-    .total {
-      text-align: right;
-      margin-top: 20px;
-      font-size: 20px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon Panier | RED-CARTE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
 </head>
 <body>
-  <header>
-    🏟️ Your Cart
-  </header>
-
-  <div class="cart-container">
-    <h2>Tickets in Cart</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Match</th>
-          <th>Ticket Type</th>
-          <th>Price (MAD)</th>
-        </tr>
-      </thead>
-      <tbody id="cart-items">
-        <!-- Cart items go here -->
-      </tbody>
-    </table>
-    <div class="total" id="cart-total">
-      Total: 0 MAD
+  <!-- HEADER -->
+  <section id="header">
+    <a href="Accueil.html"><img src="logo.png" class="logo" alt="Logo RED-CARTE"></a>
+    <ul id="navbar">
+      <li><a href="Accueil.html">Accueil</a></li>
+      <li><a href="ticket.html">Tickets</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li id="lg-bag"><a class="active" href="cart.html"><i class="far fa-shopping-cart"></i></a></li>
+      <a href="#" id="close"><i class="far fa-times"></i></a>
+    </ul>
+    <div id="mobile">
+      <a class="active" href="cart.html"><i id="active" class="far fa-shopping-cart"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
     </div>
-  </div>
+  </section>
 
-  <script src="cart.js"></script>
+  <main>
+    <section class="hero2">
+      <div class="hero2-content">
+        <h1>Votre Panier</h1>
+        <p>Vérifiez vos billets sélectionnés ci-dessous</p>
+      </div>
+    </section>
+
+    <section class="cart-content">
+      <div class="cart-container">
+        <div class="cart-header">
+          <span>Billet</span>
+          <span>Type</span>
+          <span>Prix (MAD)</span>
+        </div>
+        <div id="cart-items" class="cart-items">
+          <!-- Tickets dynamically inserted here -->
+        </div>
+        <div class="cart-total">
+          <span>Total :</span>
+          <span id="cart-total-amount">0 MAD</span>
+        </div>
+        <a href="payment.html">
+        <button class="checkout-btn" onclick="proceedCheckout()">Procéder au paiement</button>
+        </a>
+        <button class="checkout-btn" style="background-color: #444;" onclick="clearCart()">Vider le panier</button>
+      </div>
+    </section>
+  </main>
+
+  
+
+  <footer>
+    <p>&copy; 2025 RED-CARTE. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalAmount = document.getElementById('cart-total-amount');
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = `<p style="text-align:center; color:#777;">Votre panier est vide.</p>`;
+      totalAmount.textContent = "0 MAD";
+    } else {
+      let total = 0;
+      cart.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+          <span>${item.match}</span>
+          <span>${item.type}</span>
+          <span>${item.price} MAD</span>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+        total += item.price;
+      });
+      totalAmount.textContent = `${total} MAD`;
+    }
+
+    function clearCart() {
+      if (confirm("Voulez-vous vraiment vider votre panier ?")) {
+        localStorage.removeItem('cart');
+        location.reload();
+      }
+    }
+
+    function proceedCheckout() {
+      alert("Fonction de paiement à venir !");
+    }
+
+
+
+    // Navbar toggle
+const bar = document.getElementById('bar');
+const close = document.getElementById('close');
+const nav = document.getElementById('navbar');
+
+if (bar && nav) {
+  bar.addEventListener('click', () => {
+    nav.classList.add('active');
+  });
+}
+
+if (close && nav) {
+  close.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+}
+  </script>
 </body>
 </html>

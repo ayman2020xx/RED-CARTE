@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>À propos | RED-CARTE</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+<body>
+  <section class="hdr" id="header">
+    <a href="Accueil.html"><img src="logo.png" class="logo" alt="Logo Zitouna"></a>
+    <ul id="navbar">
+      <li><a href="Accueil.html">Accueil</a></li>
+      <li><a href="ticket.html">Tickets</a></li>
+      <li><a class="active" href="a-propos.html">À propos</a></li>
+      <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-cart"></i></a></li>
+      <a href="#" id="close"><i class="far fa-times"></i></a>
+    </ul>
+    <div id="mobile">
+      <a href="cart.html"><i class="far fa-shopping-cart"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+  
+  <div class="content">
+    <h2>Qui sommes-nous ?</h2>
+    <p>
+      RED-CARTE est une plateforme innovante dédiée aux passionnés de football. 
+      Nous permettons aux fans d’acheter des billets de match facilement et de les stocker de façon sécurisée sur une carte intelligente.
+    </p>
+
+    <h2>Notre mission</h2>
+    <p>
+      Offrir une expérience fluide, moderne et fiable pour l’achat de billets de football. 
+      Nous voulons révolutionner l'accès aux stades en combinant technologie, rapidité et sécurité.
+    </p>
+
+    <h2>Pourquoi nous choisir ?</h2>
+    <p>
+      ✔️ Design professionnel<br/>
+      ✔️ Interface intuitive<br/>
+      ✔️ Carte intelligente compatible NFC<br/>
+      ✔️ Sécurité des paiements garantie
+    </p>
+
+    <h2>Notre vision</h2>
+    <p>
+      Devenir la référence au Maroc (et au-delà) pour les billets de football digitaux, 
+      tout en valorisant l’innovation dans le monde du sport.
+    </p>
+
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p><strong>Email :</strong> <a href="mailto:contact@red-carte.com">contact@red-carte.com</a></p>
+      <p><strong>Téléphone :</strong> <a href="tel:+212633099410">+212 6 33 09 94 10</a></p>
+    </div>
+  </div>
+
+  <footer class="footer-a">
+    &copy; 2025 RED-CARTE. Tous droits réservés.
+  </footer>
+
+
+  <script>
+    // Navbar toggle
+const bar = document.getElementById('bar');
+const close = document.getElementById('close');
+const nav = document.getElementById('navbar');
+
+if (bar && nav) {
+  bar.addEventListener('click', () => {
+    nav.classList.add('active');
+  });
+}
+
+if (close && nav) {
+  close.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+}
+  </script>
+</body>
+</html>

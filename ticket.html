@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,14 +8,13 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 </head>
-<body>
 
   <!-- HEADER -->
   <section id="header">
     <a href="Accueil.html"><img src="logo.png" class="logo" alt="Logo Zitouna"></a>
     <ul id="navbar">
-      <li><a class="active" href="Accueil.html">Accueil</a></li>
-      <li><a href="ticket.html">Mes Tickets</a></li>
+      <li><a href="Accueil.html">Accueil</a></li>
+      <li><a class="active" href="ticket.html">Tickets</a></li>
       <li><a href="a-propos.html">À propos</a></li>
       <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-cart"></i></a></li>
       <a href="#" id="close"><i class="far fa-times"></i></a>
@@ -26,19 +25,20 @@
     </div>
   </section>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <h1>Votre Ticket. Votre Carte. Votre Jeu.</h1>
-      <p>Achetez et stockez vos billets en toute sécurité sur votre carte à puce. Vivez une expérience premium lors des matchs officiels du Maroc.</p>
-      <a href="get-your-card.html" class="btn-primary">Obtenez votre carte</a>
-      <a href="#contact" class="btn-secondary">contactez-nous</a>
-    </div>
-  </section>
 
-  <!-- MATCHES SECTION -->
+    <section class="hero2">
+      <div class="hero2-content">
+      <h1>Réservez Vos Places
+</h1>
+      <p>Obtenez vos billets officiels pour les plus grands matchs. 
+Sélectionnez, payez, et stockez-les sur votre carte intelligente RED-CARTE.
+</p>
+      </div>
+    </section>
+
+      <!-- MATCHES SECTION -->
   <section class="matches" id="matches">
-    <h2>Top Matches</h2>
+    <h2>Matchs à Venir</h2>
     <div class="matches-grid">
       <div class="match-card" tabindex="0" role="button" data-match="morocco-egypt">
         <img src="egy.jpg" alt="Morocco vs Egypt" />
@@ -80,10 +80,26 @@
         <h3>Morocco vs Portugal</h3>
         <p>National Stadium, 24 July 2025</p>
       </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-croatia">
+        <img src="cro.png" alt="Morocco vs Croatia" />
+        <h3>Morocco vs Croatia</h3>
+        <p>National Stadium, 30 July 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-belgium">
+        <img src="bel.jpg" alt="Morocco vs Belgium" />
+        <h3>Morocco vs Belgium</h3>
+        <p>National Stadium, 5 Aug 2025</p>
+      </div>
+      <div class="match-card" tabindex="0" role="button" data-match="morocco-brazil">
+        <img src="bra.jpg" alt="Morocco vs Brazil" />
+        <h3>Morocco vs Brazil</h3>
+        <p>National Stadium, 11 Aug 2025</p>
+      </div>
+    </div>
   </section>
 
 
-  <!-- Modal -->
+    <!-- Modal -->
   <div id="ticket-modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -105,8 +121,6 @@
   <footer>
     &copy; 2025 Zitouna Football Smart Cards. All rights reserved.
   </footer>
-
 <script src="script.js"></script>
 </body>
 </html>
-

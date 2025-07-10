@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Obtenez votre carte | RED-CARTE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+</head>
+<body>
+  <!-- HEADER -->
+  <section id="header">
+    <a href="Accueil.html"><img src="logo.png" class="logo" alt="Logo RED-CARTE"></a>
+    <ul id="navbar">
+      <li><a href="Accueil.html">Accueil</a></li>
+      <li><a href="ticket.html">Tickets</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-cart"></i></a></li>
+      <a href="#" id="close"><i class="far fa-times"></i></a>
+    </ul>
+    <div id="mobile">
+      <a href="cart.html"><i class="far fa-shopping-cart"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+
+  <main>
+    <section class="hero2">
+      <div class="hero2-content">
+        <h1>Obtenez votre carte</h1>
+        <p>Remplissez le formulaire ci-dessous pour recevoir votre carte physique avec vos tickets.</p>
+      </div>
+    </section>
+
+    <section class="cart-content">
+      <div class="cart-container">
+        <form id="card-form" class="payment-form">
+          <label>Nom complet :</label>
+          <input type="text" placeholder="Ex : Ahmed El Mansouri" required />
+
+          <label>Adresse de livraison :</label>
+          <input type="text" placeholder="Ex : 123 Rue de la Liberté, Casablanca" required />
+
+          <label>CIN :</label>
+          <input type="text" placeholder="Ex : AB123456" required />
+
+          <label>Téléphone :</label>
+          <input type="tel" placeholder="+212 600 123 456" required />
+
+          <button type="submit" class="checkout-btn">Valider et envoyer</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 RED-CARTE. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    document.getElementById('card-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('✅ Votre demande a été envoyée ! Vous recevrez votre carte sous peu.');
+      window.location.href = 'Accueil.html';
+    });
+
+    // Navbar toggle
+const bar = document.getElementById('bar');
+const close = document.getElementById('close');
+const nav = document.getElementById('navbar');
+
+if (bar && nav) {
+  bar.addEventListener('click', () => {
+    nav.classList.add('active');
+  });
+}
+
+if (close && nav) {
+  close.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+}
+  </script>
+</body>
+</html>
